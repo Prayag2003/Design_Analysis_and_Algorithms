@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define N 100000
+#define N 10000
 int i, j, key;
 
 void reverse(int *arr)
@@ -13,6 +13,15 @@ void reverse(int *arr)
         int temp = arr[i];
         arr[i] = arr[N - i - 1];
         arr[N - i - 1] = temp;
+    }
+}
+bool checkrev(int *arr)
+{
+    for (int i = 0; i < N - 1; i++)
+    {
+        if (arr[i + 1] > arr[i])
+            return false;
+        return true;
     }
 }
 
@@ -30,13 +39,13 @@ bool isSorted(int *arr)
 
 void insertion_sort(int *arr)
 {
-    long long int swap_cnt = 0;
+    long long int comparisons = 0;
     for (i = 1; i < N; i++)
     {
         key = arr[i];
         for (j = i - 1; j >= 0; j--)
         {
-            swap_cnt++;
+            comparisons++;
             if (key < arr[j])
             {
                 arr[j + 1] = arr[j];
@@ -48,7 +57,7 @@ void insertion_sort(int *arr)
         }
         arr[j + 1] = key;
     }
-    printf("\nNo of Counts is %lu\n", swap_cnt);
+    printf("\nNo of Comparisons is %llu\n", comparisons);
 }
 
 void calculateTime(int *arr)
@@ -85,5 +94,6 @@ int main()
     //   *****************      W O R S T   C A S E     ********************
 
     reverse(arr);
+    checkrev(arr) ? printf("Array is Reversed\n") : printf("NOPE");
     calculateTime(arr);
 }
