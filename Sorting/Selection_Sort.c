@@ -37,10 +37,11 @@ bool isSorted(int *arr)
 
 void selection_sort(int *arr)
 {
-    long long int cnt = 0;
+    long long int swapcnt = 0, comparisons = 0;
     for (i = 0; i < N - 1; i++)
     {
         min_index = i;
+        comparisons++;
         for (j = i + 1; j < N; j++)
         {
             if (arr[j] < arr[min_index])
@@ -48,10 +49,14 @@ void selection_sort(int *arr)
                 min_index = j;
             }
         }
-        cnt++;
-        swapp(&arr[min_index], &arr[i]);
+        if (min_index != i)
+        {
+            swapp(&arr[min_index], &arr[i]);
+            swapcnt++;
+        }
     }
-    printf("\nNo of Counts is %lu\n", cnt);
+    printf("\nNo of Comparisons is %llu", comparisons);
+    printf("\nNo of Counts is %llu\n", swapcnt);
 }
 
 void calculateTime(int *arr)
@@ -75,18 +80,22 @@ int main()
     {
         arr[i] = rand();
     }
- 
+
     //  ******************   A V E R A G E   C A S E    ****************
 
+    printf("\nAverage Case");
     calculateTime(arr);
-    isSorted(arr) ? printf("\nThe Array is Sorted , All is Well\n ") : printf("The Array is not Sorted :( ");
+    isSorted(arr) ? printf("\nThe Array is Sorted , All is Well\n\n") : printf("The Array is not Sorted :(");
 
     //   *****************      B E S T    C A S E    *******************
-
+    printf("Best Case");
     calculateTime(arr);
+    printf("\n");
 
     //   *****************      W O R S T   C A S E     ********************
 
+    printf("Worst Case");
     reverse(arr);
     calculateTime(arr);
+    printf("\n");
 }
