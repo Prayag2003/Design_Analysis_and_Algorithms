@@ -1,10 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdbool.h>
+#include<stdio.h>
+#include<stdbool.h>
+#include<stdlib.h>
+#include<time.h>
 
-#define N 100000
+#define N 100
+
 int i, j, key;
+
+void reverse(int *arr)
+{
+    for (i = 0; i < N / 2; i++)
+    {
+        int temp = arr[i];
+        arr[i] = arr[N - i - 1];
+        arr[N - i - 1] = temp;
+    }
+}
 
 bool isSorted(int *arr)
 {
@@ -18,27 +29,9 @@ bool isSorted(int *arr)
     }
 }
 
-void insertion_sort(int *arr)
+void merge_sort( int *arr )
 {
-    long long int comparisons = 0;
-    for (i = 1; i < N; i++)
-    {
-        key = arr[i];
-        for (j = i - 1; j >= 0; j--)
-        {
-            comparisons++;
-            if (key < arr[j])
-            {
-                arr[j + 1] = arr[j];
-            }
-            else
-            {
-                break;
-            }
-        }
-        arr[j + 1] = key;
-    }
-    printf("\nNo of Comparisons is %llu\n", comparisons);
+    
 }
 
 void calculateTime(int *arr)
@@ -74,13 +67,6 @@ int main()
 
     //   *****************      W O R S T   C A S E     ********************
 
-    // Reversing the array for WORST CASE
-    for (i = 0; i < N / 2; i++)
-    {
-        arr[i] = arr[i] + arr[N - i - 1];
-        arr[N - i - 1] = arr[i] - arr[N - i - 1];
-        arr[i] = arr[i] - arr[N - i - 1];
-    }
-
+    reverse(arr);
     calculateTime(arr);
 }
