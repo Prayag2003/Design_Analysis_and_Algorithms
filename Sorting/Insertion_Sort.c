@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define N 100000
+#define N 1000
 int i, j, key;
 
 bool isSorted(int *arr)
