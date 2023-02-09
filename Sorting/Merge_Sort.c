@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 1000
+#define N 100000
 #define ll long long int
 
 ll comparisons;
