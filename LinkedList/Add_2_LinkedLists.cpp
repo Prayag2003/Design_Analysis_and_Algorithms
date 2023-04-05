@@ -151,5 +151,5 @@ enterAgain2:
     Node *ans = addition(first, second);
     reverse(ans_str.begin(), ans_str.end());
     cout << "The Addition of " << num1 << " and "
-         << "num2 is " << num2 << " is " << ans_str;
+         << num2 << " is " << ans_str;
 }

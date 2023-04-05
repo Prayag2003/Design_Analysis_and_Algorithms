@@ -189,6 +189,7 @@ int main()
         insertAtEnd(lastCity, cityName, x, y);
     }
 
+doYouWantToContinue:
     cout << "Enter Your Queries : \n";
     cout << " 1. Search a city with Name :\n";
     cout << " 2. Search a city with Coordinates :\n";
@@ -197,8 +198,6 @@ int main()
     cout << " 5. Find all cities within a given distance : \n";
     cout << " 6. To View City DataBase : \n";
     cout << "Enter Your Choice :\n";
-
-doYouWantToContinue:
     char choice;
     cin >> choice;
 
@@ -263,6 +262,7 @@ doYouWantToContinue:
         {
             cout << i << "\n";
         }
+        break;
     }
     case '6':
     {
@@ -272,10 +272,8 @@ doYouWantToContinue:
     }
 
     cout << "To Quit :- Press 'q' .\n To Search more Queries : Press Any Other Key, \n";
-
     char check;
     cin >> check;
     if (check != 'q')
         goto doYouWantToContinue;
-    return 0;
 }
