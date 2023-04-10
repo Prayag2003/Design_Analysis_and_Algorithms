@@ -38,7 +38,7 @@ void printDB()
     cout << "\n";
 }
 
-void searchCityByName(string city)
+0 void searchCityByName(string city)
 {
     cityLinklist *temp = firstCity;
     while (temp->cityName != city && temp != NULL)
