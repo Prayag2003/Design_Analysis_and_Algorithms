@@ -5,21 +5,18 @@ bool isSafe(vector<vector<bool>> &board, int row, int col)
 {
     int n = board.size();
 
-    // checking vertical column
     for (int i = 0; i < row; i++)
     {
         if (board[i][col])
             return false;
     }
 
-    // checking left upper diagonal
     for (int i = row, j = col; i >= 0 && j >= 0; i--, j--)
     {
         if (board[i][j])
             return false;
     }
 
-    // checking right upper diagonal
     for (int i = row, j = col; i >= 0 && j < n; i--, j++)
     {
         if (board[i][j])

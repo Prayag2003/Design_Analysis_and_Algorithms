@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Define a struct to store license growth rate and index
-struct License
+struct license
 {
     double growth_rate;
     int index;
 };
 
-bool compareLicenses(const License &license1, const License &license2)
+bool compareLicenses(const license &license1, const license &license2)
 {
     return license1.growth_rate < license2.growth_rate;
 }
@@ -16,7 +15,7 @@ bool compareLicenses(const License &license1, const License &license2)
 vector<int> findLicenseOrder(const vector<double> &growth_rates)
 {
     int n = growth_rates.size();
-    vector<License> licenses(n);
+    vector<license> licenses(n);
 
     for (int i = 0; i < n; ++i)
     {
@@ -39,19 +38,20 @@ vector<int> findLicenseOrder(const vector<double> &growth_rates)
             licenses[j].growth_rate *= licenses[i].growth_rate;
         }
     }
-    cout << "Total cost: $" << total_cost << endl;
+    cout << "\n Total cost will be : $ " << total_cost << endl;
     return order;
 }
 
 int main()
 {
-    vector<double> growth_rates = {2.0, 3.0, 1.5, 1.8, 2.5};
+    vector<double> growth_rates = {1.7, 2.7, 1.5, 1.8, 2.4};
+
     vector<int> order = findLicenseOrder(growth_rates);
-    cout << "License order : ";
+    cout << " \nThe Licenses will be in the following order : \n ";
 
     for (int i = 0; i < order.size(); ++i)
     {
-        cout << order[i] << " ";
+        cout << order[i] << "  ";
     }
     cout << endl;
 }
