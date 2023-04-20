@@ -68,7 +68,7 @@ int queens(vector<vector<bool>> &board, int row)
 int main()
 {
     int n;
-    cout << "Enter the size of Chess Board you want to use for Placing Queens:";
+    cout << "Enter the size of Chess Board you want to use for Placing Queens : ";
     cin >> n;
     vector<vector<bool>> board(n, vector<bool>(n, false));
 

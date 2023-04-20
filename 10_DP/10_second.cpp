@@ -10,12 +10,10 @@ int find_peak_entry(vector<int> &A)
     while (left < right)
     {
         int mid = left + (right - left) / 2;
-        if (A[mid] < A[mid + 1])
-        {
+        if (A[mid] < A[mid + 1]){
             left = mid + 1;
         }
-        else
-        {
+        else{
             right = mid;
         }
     }

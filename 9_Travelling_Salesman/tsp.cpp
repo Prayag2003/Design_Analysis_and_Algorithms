@@ -34,17 +34,14 @@ int secondMin(int adj[N][N], int i)
     int second = INT_MAX;
     for (int j = 0; j < N; j++)
     {
-        if (i == j)
-        {
+        if (i == j){
             continue;
         }
-        if (adj[i][j] <= first)
-        {
+        if (adj[i][j] <= first){
             second = first;
             first = adj[i][j];
         }
-        else if (adj[i][j] <= second && adj[i][j] != first)
-        {
+        else if (adj[i][j] <= second && adj[i][j] != first){
             second = adj[i][j];
         }
     }
@@ -74,8 +71,7 @@ void TSPRec(int adj[N][N], int lowerbound, int currWeight, int level, int currPa
             int temp = lowerbound;
             currWeight += adj[currPath[level - 1]][i];
 
-            if (level == 1)
-            {
+            if (level == 1){
                 lowerbound -= ((firstMin(adj, currPath[level - 1]) + firstMin(adj, i)) / 2);
             }
             else
